@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Skills</title>
+        <link href="../css/tracker.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet">
+        <link href="../css/skill.css" rel="stylesheet">
+    </head>
+       <body>
+
+    <div class="container">
+
+        <!-- Tracker -->
+        <div class="tracker" data-step="3">
+
+            <h2>TRACKER</h2>
+
+            <div class="step" data-number="1">
+                <div class="circle">1</div>
+                <span>Personal Details</span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step" data-number="2">
+                <div class="circle">2</div>
+                <span>Education</span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step" data-number="3">
+                <div class="circle">3</div>
+                <span>Skills</span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step" data-number="4">
+                <div class="circle">4</div>
+                <span>Projects</span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step experience-step" data-number="5">
+                <div class="circle">5</div>
+                <span>Experience</span>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step" data-number="6">
+                <div class="circle">6</div>
+                <span>Resume</span>
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <h2><i class="fa-solid fa-laptop-code"></i>Skill</h2>
+
+            <form class="myform">
+
+                <div class="skill">
+                     <div class="top">
+                    <a href="../index.html">Home</a>
+                </div>
+
+                    <!-- Technical Skills -->
+                    <div class="tskill">
+
+                        <label style="text-decoration: underline;"><i class="fa-solid fa-laptop-code"></i>Technical Skills</label>
+
+                        <div class="skills-grid">
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="html">
+                                <label for="html">HTML</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="css">
+                                <label for="css">CSS</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="javascript">
+                                <label for="javascript">JavaScript</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="python">
+                                <label for="python">Python</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="sql">
+                                <label for="sql">SQL</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <label>Other</label>
+                                <input type="text" id="othertech" placeholder="Other Skill">
+                                <button type="button" class="but1" onclick="addtech()">Add</button>
+                                <div id="techlist"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <!-- Soft Skills -->
+                    <div class="sskill">
+
+                        <label style="text-decoration: underline;"><i class="fa-solid fa-people-group"></i>Soft Skills</label>
+
+                        <div class="skills-grid">
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="communication">
+                                <label for="communication">Communication</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="teamwork">
+                                <label for="teamwork">Teamwork</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="creativity">
+                                <label for="creativity">Creativity</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="adaptability">
+                                <label for="adaptability">Adaptability</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <label>Other</label>
+                                <input type="text" id="othersoft" placeholder="Other Skill">
+                                <button type="button" class="but2" onclick="addsoft()">Add</button>
+                                <div id="softlist"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <!-- Language -->
+                    <div class="lang">
+
+                        <label style="text-decoration: underline;"><i class="fa-solid fa-language"></i>Language</label>
+
+                        <div class="skills-grid">
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="tamil">
+                                <label for="tamil">Tamil</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="english">
+                                <label for="english">English</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <input type="checkbox" id="hindi">
+                                <label for="hindi">Hindi</label>
+                            </div>
+
+                            <div class="skill-item">
+                                <label>Other</label>
+                                <input type="text" id="otherlang" placeholder="Language">
+                                <button type="button"class="but3" onclick="addlang()">Add</button>
+                                <div id="langlist"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <p><i class="fa-solid fa-lightbulb"></i>Tip: Make sure your details are correct. You can always go back and edit later.</p>
+            <div>
+                <button class="but1" type="button" onclick="back()"><i class="fa-solid fa-arrow-left"></i>Back</button>
+                <button class="but2" type="reset"><i class="fa-solid fa-rotate-left"></i>Reset</button>
+                <button class="but3" type="submit" onclick="move()">Next<i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+    </div>
+</body>
+    <script src="../js/tracker.js"></script>
+    <script src="../js/skill.js"></script>
+</html>

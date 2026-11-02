@@ -1,0 +1,81 @@
+   #myform{
+                background-color:#fff;
+                width: 900px;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+                border: 1px solid #e7eef8;
+                padding: 40px;
+            }
+
+            input{
+                height: 48px;
+                border-radius: 10px;
+                border: 1px solid #d9e3f0;
+                background: #ffffff;
+                padding-left: 15px;
+                font-size: 15px;
+            }
+
+            label{
+                display: flex;
+                margin-bottom: 8px;
+                font-weight: 600;
+                font-size: 16px;
+                color: #2c3e50;
+                gap: 8px;
+            }
+
+            #field{
+                margin-bottom: 24px;
+                flex: 1;
+            }
+
+            /* input::placeholder{
+                color: #9ca3af;
+                font-size: 14px;
+            } */
+
+            #row{
+                display: flex;
+                gap: 40px;
+            }
+
+            #field input{
+                width: 100%;
+            }
+
+            p{
+                font-size: 18px;
+                background-color: #f4f8ff;
+                border-radius: 10px;
+                border: 1px solid #d9e3f0;
+                padding: 16px 20px;
+                width: 80%;
+            }
+
+            .but2,.but3{
+                width: 145px;
+                height: 48px;
+                background: #FFFFFF;
+                color: #6B7280;
+                border: 1px solid #D9E3F0;
+                border-radius: 12px;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+                background-color: #f4f8ff;
+            }
+
+            .but2 i{
+                margin-right: 8px;
+                color: #6B7280;
+            }
+
+            .but2 i,.but3 i{
+                color: black;
+            }
+
+            .but2:hover,.but3:hover{
+                background-color: #1daed8;
+            }

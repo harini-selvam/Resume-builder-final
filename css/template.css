@@ -1,0 +1,49 @@
+ body{
+                background-image: url('../img/template_bg.png');
+            }
+
+            .fcontent,.econtent{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 40px auto;
+                margin-left: 40px;
+                width: 90%;
+                padding: 30px;
+            }
+
+            .top{
+                position: fixed;
+                top:20px;
+                right: 30px;
+                font-size: 30px;
+                
+            }
+
+            .left{
+                width: 30%;
+                font-size: 20px;
+            }
+
+            .right{
+                display: flex;
+                width: 50%;
+                gap:50px;
+            }
+
+            #but{
+                margin-top: 10px;
+                border-radius: 10px;
+                border: 1px solid #D9E3F0;
+                height: 40px;
+                width: 50%;
+            }
+
+            #but:hover{
+                background-color: #1daed8;
+            }
+           
+            h1{
+                text-align: center;
+                text-decoration: underline;
+            }
