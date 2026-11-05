@@ -1,239 +1,394 @@
+let userfname = localStorage.getItem("fname") || "";
+let userlname = localStorage.getItem("lname") || "";
+let useremail = localStorage.getItem("mail") || "";
+let userphn = localStorage.getItem("num") || "";
+let userurl = localStorage.getItem("linkk") || "";
+let userlocation = localStorage.getItem("loc") || "";
+let userjob = localStorage.getItem("job-role") || "";
+let userobj = localStorage.getItem("objective") || "";
 
-//personal
 
-        var userfname = localStorage.getItem("fname");
-        var userlname = localStorage.getItem("lname");
-        var useremail = localStorage.getItem("mail");
-        var userphn = localStorage.getItem("num");
-        var userurl = localStorage.getItem("linkk");
-        var userlocation = localStorage.getItem("loc");
-        var userjob = localStorage.getItem("job-role");
-        var userobj = localStorage.getItem("obj");
+document.getElementById("name").innerHTML =
+userfname + " " + userlname;
 
-        document.getElementById("name").innerHTML =
-        userfname + " " + userlname;
 
-        document.getElementById("role").innerHTML =
-        userjob;
-
-        document.getElementById("objective").innerHTML =
-        userobj;
-
-        document.getElementById("email").innerHTML =
-        useremail;
-
-        document.getElementById("phone").innerHTML =
-        userphn;
-
-        document.getElementById("url").innerHTML =
-        userurl;
-
-        document.getElementById("location").innerHTML =
-        userlocation;
-
-        //education
-
-        // College Details
-        var deg = localStorage.getItem("degree");
-        var clgname = localStorage.getItem("clgname");
-        var csyear = localStorage.getItem("csyear");
-        var clyear = localStorage.getItem("clyear");
-        //var ccgpa = localStorage.getItem("ccgpa");
-        //var ctot = localStorage.getItem("ctot");
-        var cpercent = localStorage.getItem("cpercent");
-
-        // 12th Details
-        var school12 = localStorage.getItem("name");
-        var year12 = localStorage.getItem("year");
-        //var mark12 = localStorage.getItem("mark");
-        //var total12 = localStorage.getItem("tot");
-        var percent12 = localStorage.getItem("percent");
-
-        // 10th Details
-        var school10 = localStorage.getItem("sname");
-        var ssyear = localStorage.getItem("ssyear");
-        var slyear = localStorage.getItem("slyear");
-        //var smark = localStorage.getItem("smark");
-        //var stot = localStorage.getItem("stot");
-        var spercent = localStorage.getItem("spercent");
-    
-        //skill
-
-        var html = localStorage.getItem("html");
-        var css = localStorage.getItem("css");
-        var javascript = localStorage.getItem("javascript");
-        var python = localStorage.getItem("python");
-        var sql = localStorage.getItem("sql");
-        var othertech = localStorage.getItem("othertech");
-
-        var communication = localStorage.getItem("communication");
-        var teamwork = localStorage.getItem("teamwork");
-        var creativity = localStorage.getItem("creativity");
-        var adaptability = localStorage.getItem("adaptability");
-        var othersoft = localStorage.getItem("othersoft");
-
-        var tamil = localStorage.getItem("tamil");
-        var english = localStorage.getItem("english");
-        var hindi = localStorage.getItem("hindi");
-        var otherlang = localStorage.getItem("otherlang");
-
-        if(deg || clgname || csyear || clyear || cpercent ||
-   school12 || year12 || percent12 ||
-   school10 || ssyear || slyear || spercent){
-
-document.getElementById("education").innerHTML =
-"<b>Degree:</b> " + deg + "<br>" +
-"<b>College:</b> " + clgname + "<br>" +
-"<b>Duration:</b> " + csyear + " - " + clyear + "<br>" +
-"<b>Percentage:</b> " + cpercent + "%<br><br>" +
-
-"<b>Higher Secondary (12th)</b><br>" +
-"School: " + school12 + "<br>" +
-"Year: " + year12 + "<br>" +
-"Percentage: " + percent12 + "%<br><br>" +
-
-"<b>SSLC (10th)</b><br>" +
-"School: " + school10 + "<br>" +
-"Duration: " + ssyear + " - " + slyear + "<br>" +
-"Percentage: " + spercent + "%";
-
-}else{
-document.getElementById("education").closest(".education").style.display="none";
+if(userobj){
+    document.getElementById("objective").innerHTML = userobj;
+}
+else{
+    document.getElementById("objective").closest(".objective").style.display="none";
 }
 
 
-// TECHNICAL SKILLS
-var tech = [];
+if(userjob){
+    document.getElementById("role").innerHTML = userjob;
+}
+else{
+    document.getElementById("role").closest(".header").style.display="none";
+}
 
-["html","css","javascript","python","sql","othertech"].forEach(function(key){
-    var value = localStorage.getItem(key);
-    if(value){
-        tech.push(value);
+
+if(useremail){
+    document.getElementById("email").innerHTML = useremail;
+}
+else{
+    document.getElementById("email").parentElement.style.display="none";
+}
+
+
+if(userphn){
+    document.getElementById("phone").innerHTML = userphn;
+}
+else{
+    document.getElementById("phone").parentElement.style.display="none";
+}
+
+
+if(userurl){
+    document.getElementById("url").innerHTML = userurl;
+}
+else{
+    document.getElementById("url").parentElement.style.display="none";
+}
+
+
+if(userlocation){
+    document.getElementById("location").innerHTML = userlocation;
+}
+else{
+    document.getElementById("location").parentElement.style.display="none";
+}
+
+// EDUCATION DETAILS
+
+let collegeDetails =
+JSON.parse(localStorage.getItem("collegeDetails")) || [];
+
+
+let educationHTML = "";
+
+
+// College / Degree details
+
+collegeDetails.forEach(function(college){
+
+
+    if(college.degree){
+        educationHTML +=
+        "<b>Degree:</b> " + college.degree + "<br>";
     }
+
+
+    if(college.college){
+        educationHTML +=
+        "<b>College:</b> " + college.college + "<br>";
+    }
+
+
+    if(college.start && college.end){
+        educationHTML +=
+        "<b>Duration:</b> " +
+        college.start + " - " + college.end + "<br>";
+    }
+
+
+    if(college.percentage){
+        educationHTML +=
+        "<b>Percentage:</b> " +
+        college.percentage + "%<br>";
+    }
+
+
+    educationHTML += "<br>";
+
 });
 
-if(tech.length > 0){
-    document.getElementById("technical").innerHTML = tech.join("<br>");
-}else{
-    document.getElementById("technical").closest(".technical").style.display="none";
+// 12th Details
+
+let school12 = localStorage.getItem("name") || "";
+let year12 = localStorage.getItem("year") || "";
+let percent12 = localStorage.getItem("percent") || "";
+
+if(school12 || year12 || percent12){
+
+
+    educationHTML +=
+    "<b>Higher Secondary (12th)</b><br>";
+
+
+    if(school12){
+        educationHTML +=
+        "School: " + school12 + "<br>";
+    }
+
+
+    if(year12){
+        educationHTML +=
+        "Year: " + year12 + "<br>";
+    }
+
+
+    if(percent12){
+        educationHTML +=
+        "Percentage: " + percent12 + "%<br>";
+    }
+
+
+    educationHTML += "<br>";
+
 }
+
+// 10th Details
+
+let school10 = localStorage.getItem("sname") || "";
+let ssyear = localStorage.getItem("ssyear") || "";
+let slyear = localStorage.getItem("slyear") || "";
+let spercent = localStorage.getItem("spercent") || "";
+
+
+
+if(school10 || ssyear || slyear || spercent){
+
+
+    educationHTML +=
+    "<b>SSLC (10th)</b><br>";
+
+
+    if(school10){
+        educationHTML +=
+        "School: " + school10 + "<br>";
+    }
+
+
+    if(ssyear && slyear){
+        educationHTML +=
+        "Duration: " + ssyear + " - " + slyear + "<br>";
+    }
+
+
+    if(spercent){
+        educationHTML +=
+        "Percentage: " + spercent + "%";
+    }
+
+}
+
+if(educationHTML){
+
+    document.getElementById("education").innerHTML =
+    educationHTML;
+
+}
+else{
+
+    document.getElementById("education")
+    .closest(".section").style.display="none";
+
+}
+let technicalSkills =
+JSON.parse(localStorage.getItem("technicalSkills")) || [];
+
+
+if(technicalSkills.length > 0){
+
+    document.getElementById("technical").innerHTML =
+    technicalSkills.join("<br>");
+
+}
+else{
+
+    document.getElementById("technical")
+    .closest(".section").style.display="none";
+
+}
+
 
 
 // SOFT SKILLS
-var soft = [];
 
-["communication","teamwork","creativity","adaptability","othersoft"].forEach(function(key){
-    var value = localStorage.getItem(key);
-    if(value){
-        soft.push(value);
-    }
-});
+let softSkills =
+JSON.parse(localStorage.getItem("softSkills")) || [];
 
-if(soft.length > 0){
-    document.getElementById("softskill").innerHTML = soft.join("<br>");
-}else{
-    document.getElementById("softskill").closest(".softskill").style.display="none";
+
+if(softSkills.length > 0){
+
+    document.getElementById("softskill").innerHTML =
+    softSkills.join("<br>");
+
 }
+else{
+
+    document.getElementById("softskill")
+    .parentElement.style.display="none";
+
+}
+
 
 
 // LANGUAGES
-var language = [];
 
-["tamil","english","hindi","otherlang"].forEach(function(key){
-    var value = localStorage.getItem(key);
-    if(value){
-        language.push(value);
-    }
-});
+let languages =
+JSON.parse(localStorage.getItem("languages")) || [];
 
-if(language.length > 0){
-    document.getElementById("language").innerHTML = language.join("<br>");
-}else{
-    document.getElementById("language").closest(".language").style.display="none";
+
+if(languages.length > 0){
+
+    document.getElementById("language").innerHTML =
+    languages.join("<br>");
+
+}
+else{
+
+    document.getElementById("language")
+    .closest(".section").style.display="none";
+
 }
 
 
-// PROJECT
 
-var proname = localStorage.getItem("proname") || "";
-var prodesc = localStorage.getItem("prodesc") || "";
-var tool = localStorage.getItem("tool") || "";
+// PROJECT DETAILS
 
-if(proname || prodesc || tool){
+let proname =
+localStorage.getItem("proname") || "";
 
-var project = "";
+let prodesc =
+localStorage.getItem("prodesc") || "";
+
+let tool =
+localStorage.getItem("tool") || "";
+
+
+
+let projectHTML = "";
+
+
 
 if(proname){
-project += "<b>Project:</b> " + proname + "<br><br>";
+
+    projectHTML +=
+    "<b>Project:</b> " + proname + "<br><br>";
+
 }
+
 
 if(prodesc){
-project += "<b>Description:</b><br>" + prodesc + "<br><br>";
+
+    projectHTML +=
+    "<b>Description:</b><br>" +
+    prodesc + "<br><br>";
+
 }
+
 
 if(tool){
-project += "<b>Tools:</b> " + tool;
+
+    projectHTML +=
+    "<b>Tools:</b> " + tool;
+
 }
 
-document.getElementById("project").innerHTML = project;
 
-}else{
-document.getElementById("project").closest(".project").style.display="none";
+
+if(projectHTML){
+
+    document.getElementById("project").innerHTML =
+    projectHTML;
+
+}
+else{
+
+    document.getElementById("project")
+    .parentElement.style.display="none";
+
 }
 
-// COURSE
-var course = localStorage.getItem("course")||"";
+
+
+// COURSE DETAILS
+
+let course =
+localStorage.getItem("course") || "";
+
+
+
 if(course){
-document.getElementById("course").innerHTML = course;
-}else{
-document.getElementById("course").closest(".course").style.display="none";
+
+    document.getElementById("course").innerHTML =
+    course;
+
+}
+else{
+
+    document.getElementById("course")
+    .parentElement.style.display="none";
+
 }
 
 //EXPERIENCE
-
 var role = localStorage.getItem("jname") || "";
 var company = localStorage.getItem("company") || "";
 var duration = localStorage.getItem("duration") || "";
 var description = localStorage.getItem("jdescription") || "";
+var experienceHTML = "";
 
-if(role || company || duration || description){
 
-    document.getElementById("experience").innerHTML =
-    "<b>" + role + "</b><br>" +
-    company + "<br>" +
-    duration + "<br><br>" +
-    description;
-
-}else{
-
-    document.getElementById("experience").closest(".experience").style.display = "none";
-
+if(role){
+    experienceHTML += "<b>" + role + "</b><br>";
 }
 
 
-       
+if(company){
+    experienceHTML += company + "<br>";
+}
 
-    function downloadResume(){
 
-    var resume = document.querySelector(".resume");
+if(duration){
+    experienceHTML += duration + "<br>";
+}
 
-    var option = {
-    margin: 0,
-    filename: "My_Resume.pdf",
-    image: { type: "jpeg", quality: 1 },
-    html2canvas: {
-        scale: 2,
-        useCORS: true
+
+if(description){
+    experienceHTML += "<br>" + description;
+}
+
+if(experienceHTML){
+
+    document.getElementById("experience").innerHTML =
+    experienceHTML;
+
+}
+else{
+
+    document.getElementById("experience")
+    .closest(".section").style.display = "none";
+
+}
+// DOWNLOAD RESUME
+function downloadResume(){
+const element =
+document.querySelector(".resume");
+html2pdf()
+.set({
+    margin:[0,0,0,0],
+    filename:"My_Resume.pdf",
+    image:{
+        type:"jpeg",
+        quality:1
     },
-    jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "portrait"
+    html2canvas:{
+        scale:1.5,
+        scrollY:0,
+        useCORS:true
     },
-    pagebreak: {
-        mode: ["avoid-all"]
+    jsPDF:{
+        unit:"mm",
+        format:"a4",
+        orientation:"portrait"
+    },
+    pagebreak:{
+        mode:[]
     }
-};
-    html2pdf().set(option).from(resume).save();
-
+})
+.from(element)
+.save();
 }

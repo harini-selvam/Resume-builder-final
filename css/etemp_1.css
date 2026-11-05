@@ -1,4 +1,4 @@
-button{
+/* button{
             display:block;
             margin:20px auto;
             padding:10px 30px;
@@ -12,6 +12,128 @@ button{
 
         button:hover{
             background:#315b8a;
+        }
+
+        .top{
+            position: fixed;
+            top:20px;
+            right: 30px;
+            font-size: 30px;
+        } */
+
+            *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            margin:0;
+            padding:20px;
+            background:#f2f2f2;
+            font-family:Arial,sans-serif;
+        }
+
+        .resume{
+            width:210mm;
+            /* height:297mm; */
+            font-size: 11px;
+            margin:auto;
+            background:#fff;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+            overflow:hidden;
+            line-height: 1.2;
+        }
+
+        .header{
+            background:#b7d0e6;
+            text-align:center;
+            padding:35px 20px;
+        }
+
+        .header h1{
+            font-size:28px;
+            color:#1b3556;
+            margin-bottom:8px;
+        }
+
+        .header h3{
+            font-size:20px;
+            color:#555;
+            font-weight:normal;
+        }
+
+        .main{
+            display:flex;
+        }
+
+        .left{
+            width:35%;
+            background:#f8f8f8;
+            border-right:2px solid #d6d6d6;
+            padding:25px;
+        }
+
+        .right{
+            width:65%;
+            padding:25px;
+        }
+
+        .contact,
+        .soft,
+        .language,
+        .course,
+        .objective,
+        .education,
+        .technical,
+        .project{
+            margin-bottom:8px;
+        }
+
+        h2{
+            font-size:14px;
+            color:#1b3556;
+            border-bottom:2px solid #1b3556;
+            padding-bottom:6px;
+            margin-bottom:12px;
+        }
+
+        p{
+            font-size:10px;
+            line-height:1.7;
+            word-wrap:break-word;
+        }
+
+        span{
+            word-break:break-word;
+        }
+
+        button{
+            display:block;
+            margin:20px auto;
+            padding:10px 30px;
+            font-size:16px;
+            border:none;
+            border-radius:8px;
+            background:#1b3556;
+            color:#fff;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#315b8a;
+        }
+
+        .contact,
+        .soft,
+        .language,
+        .course,
+        .objective,
+        .education,
+        .technical,
+        .project{
+            break-inside:avoid;
+            page-break-inside:avoid;
         }
 
         .top{

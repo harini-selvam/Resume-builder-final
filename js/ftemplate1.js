@@ -1,192 +1,354 @@
-//personal
+let userfname = localStorage.getItem("fname") || "";
+let userlname = localStorage.getItem("lname") || "";
+let useremail = localStorage.getItem("mail") || "";
+let userphn = localStorage.getItem("num") || "";
+let userurl = localStorage.getItem("linkk") || "";
+let userlocation = localStorage.getItem("loc") || "";
+let userjob = localStorage.getItem("job-role") || "";
+let userobj = localStorage.getItem("objective") || "";
 
-var userfname = localStorage.getItem("fname");
-var userlname = localStorage.getItem("lname");
-var useremail = localStorage.getItem("mail");
-var userphn = localStorage.getItem("num");
-var userurl = localStorage.getItem("linkk");
-var userlocation = localStorage.getItem("loc");
-var userjob = localStorage.getItem("job-role");
-var userobj = localStorage.getItem("obj");
 
 document.getElementById("name").innerHTML =
 userfname + " " + userlname;
 
-document.getElementById("objective").innerHTML =
-userobj;
 
-document.getElementById("role").innerHTML =
-userjob;
+if(userobj){
+    document.getElementById("objective").innerHTML = userobj;
+}
+else{
+    document.getElementById("objective").closest(".objective").style.display="none";
+}
 
-document.getElementById("email").innerHTML =
-useremail;
 
-document.getElementById("phone").innerHTML =
-userphn;
+if(userjob){
+    document.getElementById("role").innerHTML = userjob;
+}
+else{
+    document.getElementById("role").closest(".header").style.display="none";
+}
 
-document.getElementById("url").innerHTML =
-userurl;
 
-// if userurl.length<0
-// {
-//     document.getElementById("url").closest(".url").style.display="none";
-// }
+if(useremail){
+    document.getElementById("email").innerHTML = useremail;
+}
+else{
+    document.getElementById("email").parentElement.style.display="none";
+}
 
-document.getElementById("location").innerHTML =
-userlocation;
 
-// College Details
-var collegeDetails = JSON.parse(localStorage.getItem("collegeDetails")) || [];
+if(userphn){
+    document.getElementById("phone").innerHTML = userphn;
+}
+else{
+    document.getElementById("phone").parentElement.style.display="none";
+}
 
-var collegeHTML = "";
 
-collegeDetails.forEach(function(college, index){
+if(userurl){
+    document.getElementById("url").innerHTML = userurl;
+}
+else{
+    document.getElementById("url").parentElement.style.display="none";
+}
 
-    collegeHTML += 
-    "<b>Degree:</b> " + college.degree + "<br>" +
-    "<b>College:</b> " + college.college + "<br>" +
-    "<b>Duration:</b> " + college.start + " - " + college.end + "<br>" +
-    "<b>Percentage:</b> " + college.percentage + "%<br><br>";
+
+if(userlocation){
+    document.getElementById("location").innerHTML = userlocation;
+}
+else{
+    document.getElementById("location").parentElement.style.display="none";
+}
+
+// EDUCATION DETAILS
+
+let collegeDetails =
+JSON.parse(localStorage.getItem("collegeDetails")) || [];
+
+
+let educationHTML = "";
+
+
+// College / Degree details
+
+collegeDetails.forEach(function(college){
+
+
+    if(college.degree){
+        educationHTML +=
+        "<b>Degree:</b> " + college.degree + "<br>";
+    }
+
+
+    if(college.college){
+        educationHTML +=
+        "<b>College:</b> " + college.college + "<br>";
+    }
+
+
+    if(college.start && college.end){
+        educationHTML +=
+        "<b>Duration:</b> " +
+        college.start + " - " + college.end + "<br>";
+    }
+
+
+    if(college.percentage){
+        educationHTML +=
+        "<b>Percentage:</b> " +
+        college.percentage + "%<br>";
+    }
+
+
+    educationHTML += "<br>";
 
 });
 
 // 12th Details
-var school12 = localStorage.getItem("name");
-var year12 = localStorage.getItem("year");
-//var mark12 = localStorage.getItem("mark");
-//var total12 = localStorage.getItem("tot");
-var percent12 = localStorage.getItem("percent");
 
-// 10th Details
-var school10 = localStorage.getItem("sname");
-var ssyear = localStorage.getItem("ssyear");
-var slyear = localStorage.getItem("slyear");
-//var smark = localStorage.getItem("smark");
-//var stot = localStorage.getItem("stot");
-var spercent = localStorage.getItem("spercent");
+let school12 = localStorage.getItem("name") || "";
+let year12 = localStorage.getItem("year") || "";
+let percent12 = localStorage.getItem("percent") || "";
 
-if(collegeDetails.length>0 ||
-   school12 || year12 || percent12 ||
-   school10 || ssyear || slyear || spercent){
+if(school12 || year12 || percent12){
 
-document.getElementById("education").innerHTML =
-collegeHTML +
 
-"<b>Higher Secondary (12th)</b><br>" +
-"School: " + school12 + "<br>" +
-"Year: " + year12 + "<br>" +
-"Percentage: " + percent12 + "%<br><br>" +
+    educationHTML +=
+    "<b>Higher Secondary (12th)</b><br>";
 
-"<b>SSLC (10th)</b><br>" +
-"School: " + school10 + "<br>" +
-"Duration: " + ssyear + " - " + slyear + "<br>" +
-"Percentage: " + spercent + "%";
 
-}else{
-document.getElementById("education").closest(".education").style.display="none";
+    if(school12){
+        educationHTML +=
+        "School: " + school12 + "<br>";
+    }
+
+
+    if(year12){
+        educationHTML +=
+        "Year: " + year12 + "<br>";
+    }
+
+
+    if(percent12){
+        educationHTML +=
+        "Percentage: " + percent12 + "%<br>";
+    }
+
+
+    educationHTML += "<br>";
+
 }
 
+// 10th Details
+
+let school10 = localStorage.getItem("sname") || "";
+let ssyear = localStorage.getItem("ssyear") || "";
+let slyear = localStorage.getItem("slyear") || "";
+let spercent = localStorage.getItem("spercent") || "";
+
+
+
+if(school10 || ssyear || slyear || spercent){
+
+
+    educationHTML +=
+    "<b>SSLC (10th)</b><br>";
+
+
+    if(school10){
+        educationHTML +=
+        "School: " + school10 + "<br>";
+    }
+
+
+    if(ssyear && slyear){
+        educationHTML +=
+        "Duration: " + ssyear + " - " + slyear + "<br>";
+    }
+
+
+    if(spercent){
+        educationHTML +=
+        "Percentage: " + spercent + "%";
+    }
+
+}
+
+if(educationHTML){
+
+    document.getElementById("education").innerHTML =
+    educationHTML;
+
+}
+else{
+
+    document.getElementById("education")
+    .closest(".section").style.display="none";
+
+}
 let technicalSkills =
 JSON.parse(localStorage.getItem("technicalSkills")) || [];
 
-if (technicalSkills.length > 0) {
+
+if(technicalSkills.length > 0){
 
     document.getElementById("technical").innerHTML =
     technicalSkills.join("<br>");
 
-} else {
+}
+else{
 
     document.getElementById("technical")
-    .closest(".technical").style.display = "none";
+    .closest(".section").style.display="none";
+
 }
 
+
+
+// SOFT SKILLS
 
 let softSkills =
 JSON.parse(localStorage.getItem("softSkills")) || [];
 
-if (softSkills.length > 0) {
+
+if(softSkills.length > 0){
 
     document.getElementById("softskill").innerHTML =
     softSkills.join("<br>");
 
-} else {
+}
+else{
 
     document.getElementById("softskill")
-    .closest(".softskill").style.display = "none";
+    .parentElement.style.display="none";
+
 }
+
+
+
+// LANGUAGES
 
 let languages =
 JSON.parse(localStorage.getItem("languages")) || [];
 
-if (languages.length > 0) {
+
+if(languages.length > 0){
 
     document.getElementById("language").innerHTML =
     languages.join("<br>");
 
-} else {
+}
+else{
 
     document.getElementById("language")
-    .closest(".language").style.display = "none";
+    .closest(".section").style.display="none";
+
 }
 
-//project
-var proname = localStorage.getItem("proname") || "";
-var prodesc = localStorage.getItem("prodesc") || "";
-var tool = localStorage.getItem("tool") || "";
 
-if(proname || prodesc || tool){
 
-var project = "";
+// PROJECT DETAILS
+
+let proname =
+localStorage.getItem("proname") || "";
+
+let prodesc =
+localStorage.getItem("prodesc") || "";
+
+let tool =
+localStorage.getItem("tool") || "";
+
+
+
+let projectHTML = "";
+
+
 
 if(proname){
-project += "<b>Project:</b> " + proname + "<br><br>";
+
+    projectHTML +=
+    "<b>Project:</b> " + proname + "<br><br>";
+
 }
+
 
 if(prodesc){
-project += "<b>Description:</b><br>" + prodesc + "<br><br>";
+
+    projectHTML +=
+    "<b>Description:</b><br>" +
+    prodesc + "<br><br>";
+
 }
+
 
 if(tool){
-project += "<b>Tools:</b> " + tool;
+
+    projectHTML +=
+    "<b>Tools:</b> " + tool;
+
 }
 
-document.getElementById("project").innerHTML = project;
 
-}else{
-document.getElementById("project").closest(".project").style.display="none";
+
+if(projectHTML){
+
+    document.getElementById("project").innerHTML =
+    projectHTML;
+
+}
+else{
+
+    document.getElementById("project")
+    .parentElement.style.display="none";
+
 }
 
-//course
-var course = localStorage.getItem("course")||"";
+
+
+// COURSE DETAILS
+
+let course =
+localStorage.getItem("course") || "";
+
+
+
 if(course){
-document.getElementById("course").innerHTML = course;
-}else{
-document.getElementById("course").closest(".course").style.display="none";
+
+    document.getElementById("course").innerHTML =
+    course;
+
 }
+else{
 
-function downloadResume() {
+    document.getElementById("course")
+    .parentElement.style.display="none";
 
-    const element = document.querySelector(".resume");
-
-    html2pdf().set({
-        margin: [0, 0, 0, 0],
-        filename: "My_Resume.pdf",
-        image: {
-            type: "jpeg",
-            quality: 1
-        },
-        html2canvas: {
-            scale: 1.5,
-            scrollY: 0,
-            useCORS: true
-        },
-        jsPDF: {
-            unit: "mm",
-            format: "a4",
-            orientation: "portrait"
-        },
-        pagebreak: {
-            mode: []
-        }
-    }).from(element).save();
+}
+// DOWNLOAD RESUME
+function downloadResume(){
+const element =
+document.querySelector(".resume");
+html2pdf()
+.set({
+    margin:[0,0,0,0],
+    filename:"My_Resume.pdf",
+    image:{
+        type:"jpeg",
+        quality:1
+    },
+    html2canvas:{
+        scale:1.5,
+        scrollY:0,
+        useCORS:true
+    },
+    jsPDF:{
+        unit:"mm",
+        format:"a4",
+        orientation:"portrait"
+    },
+    pagebreak:{
+        mode:[]
+    }
+})
+.from(element)
+.save();
 }

@@ -8,56 +8,94 @@ var userjob = localStorage.getItem("job-role");
 var userobj = localStorage.getItem("obj");
 
 document.getElementById("name").innerHTML = userfname + " " + userlname;
-document.getElementById("role").innerHTML = "Fresher";
+document.getElementById("role").innerHTML = userjob;
+document.getElementById("objective").innerHTML = userobj;
 document.getElementById("email").innerHTML = useremail;
 document.getElementById("phone").innerHTML = userphn;
 document.getElementById("url").innerHTML = userurl;
 document.getElementById("location").innerHTML = userlocation;
-document.getElementById("role").innerHTML = userjob;
-document.getElementById("objective").innerHTML = userobj;
+
 // EDUCATION
 
-
+let educationHTML = "";
 var deg = localStorage.getItem("degree") || "";
 var clgname = localStorage.getItem("clgname") || "";
 var csyear = localStorage.getItem("csyear") || "";
 var clyear = localStorage.getItem("clyear") || "";
 var cpercent = localStorage.getItem("cpercent") || "";
 
+
 var school12 = localStorage.getItem("name") || "";
 var year12 = localStorage.getItem("year") || "";
 var percent12 = localStorage.getItem("percent") || "";
+
 
 var school10 = localStorage.getItem("sname") || "";
 var ssyear = localStorage.getItem("ssyear") || "";
 var slyear = localStorage.getItem("slyear") || "";
 var spercent = localStorage.getItem("spercent") || "";
 
-if(deg || clgname || csyear || clyear || cpercent ||
-   school12 || year12 || percent12 ||
-   school10 || ssyear || slyear || spercent){
+if(deg){
+    educationHTML += "<b>Degree:</b> " + deg + "<br>";
+}
 
-document.getElementById("education").innerHTML =
-"<b>Degree:</b> " + deg + "<br>" +
-"<b>College:</b> " + clgname + "<br>" +
-"<b>Duration:</b> " + csyear + " - " + clyear + "<br>" +
-"<b>Percentage:</b> " + cpercent + "%<br><br>" +
+if(clgname){
+    educationHTML += "<b>College:</b> " + clgname + "<br>";
+}
 
-"<b>Higher Secondary (12th)</b><br>" +
-"School: " + school12 + "<br>" +
-"Year: " + year12 + "<br>" +
-"Percentage: " + percent12 + "%<br><br>" +
+if(csyear && clyear){
+    educationHTML += "<b>Duration:</b> " + csyear + " - " + clyear + "<br>";
+}
 
-"<b>SSLC (10th)</b><br>" +
-"School: " + school10 + "<br>" +
-"Duration: " + ssyear + " - " + slyear + "<br>" +
-"Percentage: " + spercent + "%";
-
-}else{
-document.getElementById("education").closest(".section").style.display="none";
+if(cpercent){
+    educationHTML += "<b>Percentage:</b> " + cpercent + "%<br>";
 }
 
 
+if(deg || clgname || csyear || clyear || cpercent){
+    educationHTML += "<br>";
+}
+
+
+if(school12 || year12 || percent12){
+
+    educationHTML += "<b>Higher Secondary (12th)</b><br>";
+
+    if(school12)
+        educationHTML += "School: " + school12 + "<br>";
+
+    if(year12)
+        educationHTML += "Year: " + year12 + "<br>";
+
+    if(percent12)
+        educationHTML += "Percentage: " + percent12 + "%<br>";
+
+    educationHTML += "<br>";
+}
+if(school10 || ssyear || slyear || spercent){
+
+    educationHTML += "<b>SSLC (10th)</b><br>";
+
+    if(school10)
+        educationHTML += "School: " + school10 + "<br>";
+
+    if(ssyear && slyear)
+        educationHTML += "Duration: " + ssyear + " - " + slyear + "<br>";
+
+    if(spercent)
+        educationHTML += "Percentage: " + spercent + "%";
+
+}
+if(educationHTML){
+
+    document.getElementById("education").innerHTML = educationHTML;
+
+}else{
+
+    document.getElementById("education")
+    .closest(".section").style.display="none";
+
+}
 // TECHNICAL SKILLS
 var tech = [];
 
@@ -150,18 +188,38 @@ var role = localStorage.getItem("jname") || "";
 var company = localStorage.getItem("company") || "";
 var duration = localStorage.getItem("duration") || "";
 var description = localStorage.getItem("jdescription") || "";
+var experienceHTML = "";
 
-if(role || company || duration || description){
+
+if(role){
+    experienceHTML += "<b>" + role + "</b><br>";
+}
+
+
+if(company){
+    experienceHTML += company + "<br>";
+}
+
+
+if(duration){
+    experienceHTML += duration + "<br>";
+}
+
+
+if(description){
+    experienceHTML += "<br>" + description;
+}
+
+if(experienceHTML){
 
     document.getElementById("experience").innerHTML =
-    "<b>" + role + "</b><br>" +
-    company + "<br>" +
-    duration + "<br><br>" +
-    description;
+    experienceHTML;
 
-}else{
+}
+else{
 
-    document.getElementById("experience").closest(".section").style.display = "none";
+    document.getElementById("experience")
+    .closest(".section").style.display = "none";
 
 }
 
