@@ -350,5 +350,8 @@ html2pdf()
     }
 })
 .from(element)
-.save();
+.save()
+.then(function(){
+    localStorage.clear();
+});
 }

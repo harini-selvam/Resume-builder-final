@@ -9,7 +9,7 @@
         localStorage.setItem("duration",jduration);
         localStorage.setItem("company",jcompany);
         localStorage.setItem("jdescription",jdesc);        
-        window.location.href = "template.html";
+        window.location.href = "experience_template.html";
         return false;
     };
 

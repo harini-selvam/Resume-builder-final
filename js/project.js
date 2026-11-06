@@ -2,7 +2,7 @@
             event.preventDefault();
             const resumeType = sessionStorage.getItem("resumeType");
             if(resumeType=="fresher"){
-                window.location.href = "template.html"
+                window.location.href = "fresher_template.html"
             }
              else{
                 window.location.href = "experience.html"

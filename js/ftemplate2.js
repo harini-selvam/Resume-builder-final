@@ -228,5 +228,8 @@ function downloadResume() {
         pagebreak: {
             mode: ["avoid-all","css","legacy"]
         }
-    }).from(element).save();
+    }).from(element).save()
+    .then(function(){
+    localStorage.clear();
+});
 }
