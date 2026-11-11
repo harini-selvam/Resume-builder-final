@@ -65,8 +65,11 @@ if(school12 || syear12 || lyear12 || percent12){
     if(school12)
         educationHTML += "School: " + school12 + "<br>";
 
-    if(year12)
-        educationHTML += "Year: " + year12 + "<br>";
+    if(syear12)
+        educationHTML += "Year: " + syear12 + "<br>";
+
+    if(lyear12)
+        educationHTML += "Year: " + lyear12 + "<br>";
 
     if(percent12)
         educationHTML += "Percentage: " + percent12 + "%<br>";

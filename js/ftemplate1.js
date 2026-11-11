@@ -123,9 +123,14 @@ if(school12 || syear12 || lyear12 || percent12){
     }
 
 
-    if(year12){
+    if(syear12){
         educationHTML +=
-        "Year: " + year12 + "<br>";
+        "Year: " + syear12 + "<br>";
+    }
+
+    if(lyear12){
+        educationHTML +=
+        "Year: " + lyear12 + "<br>";
     }
 
 
