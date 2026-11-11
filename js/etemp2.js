@@ -25,9 +25,10 @@ var clyear = localStorage.getItem("clyear") || "";
 var cpercent = localStorage.getItem("cpercent") || "";
 
 
-var school12 = localStorage.getItem("name") || "";
-var year12 = localStorage.getItem("year") || "";
-var percent12 = localStorage.getItem("percent") || "";
+let school12 = localStorage.getItem("name") || "";
+let syear12 = localStorage.getItem("syear") || "";
+let lyear12 = localStorage.getItem("lyear") || "";
+let percent12 = localStorage.getItem("percent") || "";
 
 
 var school10 = localStorage.getItem("sname") || "";
@@ -57,7 +58,7 @@ if(deg || clgname || csyear || clyear || cpercent){
 }
 
 
-if(school12 || year12 || percent12){
+if(school12 || syear12 || lyear12 || percent12){
 
     educationHTML += "<b>Higher Secondary (12th)</b><br>";
 

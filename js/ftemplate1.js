@@ -106,10 +106,11 @@ collegeDetails.forEach(function(college){
 // 12th Details
 
 let school12 = localStorage.getItem("name") || "";
-let year12 = localStorage.getItem("year") || "";
+let syear12 = localStorage.getItem("syear") || "";
+let lyear12 = localStorage.getItem("lyear") || "";
 let percent12 = localStorage.getItem("percent") || "";
 
-if(school12 || year12 || percent12){
+if(school12 || syear12 || lyear12 || percent12){
 
 
     educationHTML +=
