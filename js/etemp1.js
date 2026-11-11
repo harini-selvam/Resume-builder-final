@@ -204,7 +204,7 @@ if(technicalSkills.length > 0){
 else{
 
     document.getElementById("technical")
-    .closest(".section").style.display="none";
+    .parentElement.style.display="none";
 
 }
 
@@ -246,7 +246,7 @@ if(languages.length > 0){
 else{
 
     document.getElementById("language")
-    .closest(".section").style.display="none";
+    .parentElement.style.display="none";
 
 }
 
@@ -366,7 +366,7 @@ if(experienceHTML){
 else{
 
     document.getElementById("experience")
-    .closest(".section").style.display = "none";
+    .parentElement.style.display = "none";
 
 }
 // DOWNLOAD RESUME
