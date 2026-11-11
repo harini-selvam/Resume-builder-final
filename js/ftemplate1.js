@@ -353,5 +353,6 @@ html2pdf()
 .save()
 .then(function(){
     localStorage.clear();
+    window.location.href='../index.html';
 });
 }
