@@ -9,10 +9,10 @@
         localStorage.setItem("duration",jduration);
         localStorage.setItem("company",jcompany);
         localStorage.setItem("jdescription",jdesc);        
-        window.location.href = "experience_template.html";
+        window.location.href = "../html/experience_template.html";
         return false;
     };
 
         function back(){
-        window.location.href = "project.html";
+        window.location.href = "../html/project.html";
         }

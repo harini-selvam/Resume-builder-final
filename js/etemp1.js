@@ -388,8 +388,8 @@ html2pdf()
     },
     jsPDF:{
         unit:"mm",
-        format:"a4",
-        orientation:"portrait"
+        format:"a4", //210 wide and 297 tall
+        orientation:"portrait" //vertical
     },
     pagebreak:{
         mode:[]

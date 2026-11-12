@@ -72,5 +72,5 @@ let techOther = [];
             window.location.href="../html/project.html";
         }
         function back(){
-        window.location.href = "../html/education_detail.html"
+        window.location.href = "../html/education_detail.html";
         }

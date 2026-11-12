@@ -17,14 +17,14 @@
             localStorage.setItem("obj",objective);
 
             if(resumeType=="fresher"){
-                window.location.href = "fresher_template.html"
+                window.location.href = "../html/fresher_template.html";
             }
              else{
-                window.location.href = "experience.html"
+                window.location.href = "../html/experience.html";
              } 
             return false;
         }
 
         function back(){
-        window.location.href = "../html/skill.html"
+        window.location.href = "../html/skill.html";
         }
