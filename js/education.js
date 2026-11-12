@@ -186,9 +186,9 @@ function clearsch2(){
 }
 
 function back(){
-    window.location.href="personal_details.html";
+    window.location.href="../html/personal_details.html";
 }
 
 function next(){
-    window.location.href="skill.html";
+    window.location.href="../html/skill.html";
 }
